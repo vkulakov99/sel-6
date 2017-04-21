@@ -36,13 +36,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test-example.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test-example.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python-example/test-example.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
               <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test-litecart-login.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test-litecart-login/test-litecart-login.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#31#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -272,6 +284,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/python-example/test-example.py" />
+        <option value="$PROJECT_DIR$/python-simple-login/test-simple-login.py" />
+        <option value="$PROJECT_DIR$/test-litecart-login/test-litecart-login.py" />
       </list>
     </option>
   </component>
@@ -320,20 +334,55 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test-litecart-login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sel-6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sel-6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="python-example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Tests">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="External Dependencies">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-    <property name="jdk.selected.PYTHON_MODULE" value="Python 3.4.3 virtualenv at C:\Devel\trainings\venv" />
+    <property name="last_opened_file_path" value="C:/Devel/trainings/venv2" />
+    <property name="settings.editor.selected.configurable" value="diff.base" />
+    <property name="jdk.selected.PYTHON_MODULE" value="Python 3.4.3 virtualenv at C:\Devel\trainings\venv2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Vladimir\Documents\GitHub\sel-6\test-litecart-login" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Vladimir\Documents\GitHub\sel-6\python-simple-login" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -347,7 +396,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.py.test in test-example.py">
+  <component name="RunManager" selected="Python tests.python-simple-login.py">
     <configuration default="false" name="py.test in test-example.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -486,7 +535,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Devel\trainings\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -568,8 +617,42 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.py.test in test-example.py" />
+    <configuration default="false" name="Unittests in test-simple-login.py" type="tests" factoryName="Unittests" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="C:\Devel\trainings\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="sel-6" />
+      <option name="_new_pattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test-litecart-login/test-simple-login.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="python-simple-login.py" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="python-example" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/python-simple-login/test-simple-login.py&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in test-simple-login.py" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.python-simple-login.py" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.py.test in test-example.py" />
     </list>
     <recent_temporary>
       <list size="1">
@@ -597,21 +680,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="py_test_in_test-example_py - 2017.04.20 at 13h 32m 00s.xml">
+    <history-entry file="Unittests_in_test-simple-login_py - 2017.04.21 at 03h 55m 48s.xml">
+      <configuration name="Unittests in test-simple-login.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_test-simple-login_py - 2017.04.21 at 04h 33m 52s.xml">
+      <configuration name="Unittests in test-simple-login.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="py_test_in_test-example_py - 2017.04.21 at 04h 31m 46s.xml">
       <configuration name="py.test in test-example.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test-example_py - 2017.04.20 at 16h 26m 17s.xml">
-      <configuration name="py.test in test-example.py" configurationId="tests" />
+    <history-entry file="python-simple-login_py - 2017.04.21 at 03h 56m 16s.xml">
+      <configuration name="python-simple-login.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test-example_py - 2017.04.20 at 16h 38m 04s.xml">
-      <configuration name="py.test in test-example.py" configurationId="tests" />
+    <history-entry file="python-simple-login_py - 2017.04.21 at 04h 32m 08s.xml">
+      <configuration name="python-simple-login.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="py_test_in_test-example_py - 2017.04.20 at 16h 56m 17s.xml">
-      <configuration name="py.test in test-example.py" configurationId="tests" />
+    <history-entry file="python-simple-login_py - 2017.04.21 at 04h 34m 26s.xml">
+      <configuration name="python-simple-login.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="python-simple-login_py - 2017.04.21 at 04h 35m 01s.xml">
+      <configuration name="python-simple-login.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="python-simple-login_py - 2017.04.21 at 04h 35m 40s.xml">
+      <configuration name="python-simple-login.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="python-simple-login_py - 2017.04.21 at 04h 36m 27s.xml">
+      <configuration name="python-simple-login.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="python-simple-login_py - 2017.04.21 at 11h 48m 32s.xml">
+      <configuration name="python-simple-login.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="140" y="-8" width="1788" height="1096" extended-state="7" />
+    <frame x="140" y="-8" width="1788" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -712,12 +813,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test-litecart-login/test-simple-login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="64" lean-forward="false" selection-start-line="3" selection-start-column="64" selection-end-line="3" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/python-example/test-example.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test-litecart-login/test-litecart-login.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
