@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/python-example/python-example.iml" filepath="$PROJECT_DIR$/python-example/python-example.iml" />
+      <module fileurl="file://C:\Users\Vladimir\Documents\GitHub\sel-6\python-example\python-example.iml" filepath="C:\Users\Vladimir\Documents\GitHub\sel-6\python-example\python-example.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/sel-6.iml" filepath="$PROJECT_DIR$/.idea/sel-6.iml" />
       <module fileurl="file://$PROJECT_DIR$/test-litecart-login/test-litecart-login.iml" filepath="$PROJECT_DIR$/test-litecart-login/test-litecart-login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-litecart-login2/test-litecart-login2.iml" filepath="$PROJECT_DIR$/test-litecart-login2/test-litecart-login2.iml" />
     </modules>
   </component>
 </project>
