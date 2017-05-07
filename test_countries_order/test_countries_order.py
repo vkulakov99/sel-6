@@ -50,5 +50,3 @@ def test_countries_order(driver):
     print (str(number_of_countries) + ' ' + countries[number_of_countries-1].text + '->' + country)
 
 
-
-
