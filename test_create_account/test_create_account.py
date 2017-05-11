@@ -1,12 +1,8 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
+from selenium.webdriver.support.ui import Select
 import datetime
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-import re
 
 
 @pytest.fixture
@@ -31,10 +27,9 @@ def test_create_account(driver):
     postcode = driver.find_element_by_css_selector("input[name=postcode]")
     postcode.click()
     postcode.send_keys("12345")
-    country = driver.find_element_by_css_selector("select[name=country_code]")
-    country.click()
     # страна USA, штат произвольный
-    country.send_keys("U" + Keys.DOWN + Keys.DOWN + Keys.DOWN + Keys.DOWN + Keys.ENTER)
+    country = Select(driver.find_element_by_name('country_code'))
+    country.select_by_visible_text("United States")
     email = driver.find_element_by_css_selector("main input[name=email]")
     email.click()
     # генерируем уникальный адрес по дате и времени
