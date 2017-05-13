@@ -24,16 +24,10 @@ def test_add_product(driver):
     driver.find_element_by_name("password").send_keys("admin")
     # driver.find_element_by_css_selector('button[name="login"]').click()
     driver.find_element_by_name("password").send_keys(Keys.ENTER)
-    # Проверяем, что меню загрузилось
-    #WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "main")))
 
-    #driver.find_element_by_xpath("//a[contains(@href,'catalog')]").click()
     driver.find_element_by_xpath("//span[.='Catalog']").click()
 
-    #WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "form[name=catalog_form]")))
-
     driver.find_element_by_xpath("//a[.=' Add New Product']").click()
-    #time.sleep(2)
 
     driver.find_element_by_xpath("//label[.=' Enabled']").click()
 
@@ -77,7 +71,6 @@ def test_add_product(driver):
 
     # Работаем с вкладкой Information
     driver.find_element_by_xpath("//a[.='Information']").click()
-    time.sleep(2)
 
     manufacturer = Select(driver.find_element_by_name('manufacturer_id'))
     manufacturer.select_by_visible_text("ACME Corp.")
@@ -93,7 +86,6 @@ def test_add_product(driver):
 
     # Работаем с вкладкой Prices
     driver.find_element_by_xpath("//a[.='Prices']").click()
-    time.sleep(2)
 
     purchase_price = driver.find_element_by_xpath("//input[@name='purchase_price']")
     purchase_price.clear()
@@ -102,15 +94,18 @@ def test_add_product(driver):
     currenry = Select(driver.find_element_by_name('purchase_price_currency_code'))
     currenry.select_by_visible_text("US Dollars")
 
-    prices_usd = driver.find_element_by_xpath("//input[@name='prices[USD]']")
-    prices_usd.clear()
-    prices_usd.send_keys('13')
+    # Цена без налога заполняется автоматически на основе цены с налогом
+    #prices_usd = driver.find_element_by_xpath("//input[@name='prices[USD]']")
+    #prices_usd.clear()
+    #prices_usd.send_keys('13.00')
 
     gross_prices_usd = driver.find_element_by_xpath("//input[@name='gross_prices[USD]']")
     gross_prices_usd.clear()
-    gross_prices_usd.send_keys('15.34')
+    gross_prices_usd.send_keys('13.00')
 
     driver.find_element_by_css_selector("button[name=save]").click()
-    time.sleep(20)
 
-
+    search_form = driver.find_element_by_css_selector("form[name=search_form] input[name='query']")
+    search_form.send_keys(code + Keys.ENTER)
+    if driver.find_element_by_xpath("//td[contains(.,'Products:')]").text != 'Products: 1':
+        raise Exception("Ошибка добавления продукта!")
