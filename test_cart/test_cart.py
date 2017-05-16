@@ -21,119 +21,36 @@ def driver(request):
 
 def test_cart(driver):
     driver.implicitly_wait(10)
-    driver.get("http://localhost/litecart/")
-    products = driver.find_elements_by_css_selector("a.link")
 
-    products[0].click()
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "button[name=add_cart_product]")))
-    product_name = driver.find_element_by_css_selector("h1.title").text
+    for product_counter in range(0,3):
+        driver.get("http://localhost/litecart/")
+        products = driver.find_elements_by_css_selector("a.link")
 
-    size = Select(driver.find_element_by_name('options[Size]'))
-    size.select_by_visible_text("Small")
+        products[0].click()
+        WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "button[name=add_cart_product]")))
 
-    # Сохраняем начальное число товаров в корзине
-    cart_content = driver.find_element_by_css_selector("div.content").text
-    m = re.search('(\d+) item\(s\)', cart_content)
-    ititial_number_of_items = int(m.group(1))
+        size = Select(driver.find_element_by_name('options[Size]'))
+        size.select_by_index(product_counter+1)  # нулевая опция - это просто подсказка --Select--, поэтому начинаем с 1
 
-    button = driver.find_element_by_css_selector("button[name=add_cart_product]")
-    button.click()
+        # Сохраняем начальное число товаров в корзине
+        ititial_number_of_items = int(driver.find_element_by_css_selector("#cart .quantity").get_attribute("textContent"))
 
-    i = 0
-    while True:
-        if i > 20:
-            raise Exception("В течение 10 секунд счетчик товаров в корзине не обновился.")
-        cart_content = driver.find_element_by_css_selector("div.content").text
-        m = re.search('(\d+) item\(s\)', cart_content)
-        changed_number_of_items = int(m.group(1))
-        if changed_number_of_items - ititial_number_of_items == 1:
-            print ("Товар " + product_name + " размером \"Small\" успешно добавлен в корзину.")
-            break
-        time.sleep(0.5)
-        i+=1
+        button = driver.find_element_by_css_selector("button[name=add_cart_product]")
+        button.click()
 
-    # Начинаем добавление второго продукта в корзину
-    driver.get("http://localhost/litecart/")
-    products = driver.find_elements_by_css_selector("a.link")
-    products[0].click()
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "button[name=add_cart_product]")))
-    product_name = driver.find_element_by_css_selector("h1.title").text
-
-    size = Select(driver.find_element_by_name('options[Size]'))
-    size.select_by_visible_text("Medium +$2.50")
-
-    cart_content = driver.find_element_by_css_selector("div.content").text
-    m = re.search('(\d+) item\(s\)', cart_content)
-    ititial_number_of_items = int(m.group(1))
-
-    button = driver.find_element_by_css_selector("button[name=add_cart_product]")
-    button.click()
-
-    i = 0
-    while True:
-        if i > 20:
-            raise Exception("В течение 10 секунд счетчик товаров в корзине не обновился.")
-        cart_content = driver.find_element_by_css_selector("div.content").text
-        m = re.search('(\d+) item\(s\)', cart_content)
-        changed_number_of_items = int(m.group(1))
-        if changed_number_of_items - ititial_number_of_items == 1:
-            print ("Товар " + product_name + " размером \"Medium\" успешно добавлен в корзину.")
-            break
-        time.sleep(0.5)
-        i+=1
-
-    # Начинаем добавление третьего продукта в корзину
-    driver.get("http://localhost/litecart/")
-    products = driver.find_elements_by_css_selector("a.link")
-    products[0].click()
-    WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, "button[name=add_cart_product]")))
-    product_name = driver.find_element_by_css_selector("h1.title").text
-
-    size = Select(driver.find_element_by_name('options[Size]'))
-    size.select_by_visible_text("Large +$5")
-
-    cart_content = driver.find_element_by_css_selector("div.content").text
-    m = re.search('(\d+) item\(s\)', cart_content)
-    ititial_number_of_items = int(m.group(1))
-
-    button = driver.find_element_by_css_selector("button[name=add_cart_product]")
-    button.click()
-
-    i = 0
-    while True:
-        if i > 20:
-            raise Exception("В течение 10 секунд счетчик товаров в корзине не обновился.")
-        cart_content = driver.find_element_by_css_selector("div.content").text
-        m = re.search('(\d+) item\(s\)', cart_content)
-        changed_number_of_items = int(m.group(1))
-        if changed_number_of_items - ititial_number_of_items == 1:
-            print ("Товар " + product_name + " размером \"Large\" успешно добавлен в корзину.")
-            break
-        time.sleep(0.5)
-        i+=1
+        # Ждем, пока значение в корзине увеличится на 1
+        WebDriverWait(driver,10).until(EC.text_to_be_present_in_element((By.CSS_SELECTOR, "#cart .quantity"),str(ititial_number_of_items+1)))
 
     # Заходим в корзину (через главную страницу)
     driver.get("http://localhost/litecart/")
     driver.find_element_by_css_selector("a.image").click()
 
-    # Удаляем первый из трех товаров из корзины
-    trash_buttons = driver.find_elements_by_css_selector("button[name='remove_cart_item'")
-    trash_buttons[0].click()
-    time.sleep(3)
-    footer = driver.find_element_by_css_selector("tr.footer")
-    print(footer.find_element_by_css_selector("td:nth-child(2)").text)
+    # Удаляем товары из корзины по очереди
+    for product_counter in range(0,3):
+        trash_button = driver.find_element_by_css_selector("button[name='remove_cart_item'")
+        trash_button.click()
+        WebDriverWait(driver,10).until(EC.staleness_of(trash_button))
 
-    # Удаляем первый из двух оставшихся товаров из корзины
-    trash_buttons = driver.find_elements_by_css_selector("button[name='remove_cart_item'")
-    trash_buttons[0].click()
-    time.sleep(3)
-    footer = driver.find_element_by_css_selector("tr.footer")
-    print(footer.find_element_by_css_selector("td:nth-child(2)").text)
 
-    # Удаляем последний и единственный товар из корзины
-    trash_buttons = driver.find_elements_by_css_selector("button[name='remove_cart_item'")
-    trash_buttons[0].click()
-    # Ждем, пока таблица внизу исчезнет
-    WebDriverWait(driver,10).until(EC.staleness_of(footer))
 
 
