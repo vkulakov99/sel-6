@@ -37,6 +37,9 @@ def test_log_messages(driver):
     # для каждой ссылки
     for i in range(0,number_of_links):
         driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1")
+        # ждем пока страница загрузится и появится нижний элемент
+        WebDriverWait(driver,10).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".btn-group")))
+        
         # Ссылки на товары протухли, поэтому ищем их ещё раз
         links = driver.find_elements_by_css_selector("img + a")
         links[i].click()
